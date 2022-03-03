@@ -1,0 +1,39 @@
+type Mutation {
+  login(
+    data: LoginInput
+  ): LoginOutput
+}
+
+type Mutation {
+  register(
+    data: RegisterInput
+  ): RegisterOutput
+}
+
+input RegisterInput {
+  name: String!
+  email: String!
+  password: String!
+}
+
+input LoginInput {
+  email: String!
+  password: String!
+}
+
+type RegisterOutput {
+  token: String
+  statusCode: String!
+  statusIsOk: Boolean!
+  statusMessage: String!
+  statusPath: String!
+}
+
+type LoginOutput {
+  token: String
+  statusCode: String!
+  statusIsOk: Boolean!
+  statusMessage: String!
+  statusPath: String!
+}
+
