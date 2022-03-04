@@ -1,0 +1,65 @@
+table:
+  name: board
+  schema: public
+configuration:
+  custom_column_names:
+    user_id: userId
+  custom_root_fields: {}
+object_relationships:
+- name: user
+  using:
+    foreign_key_constraint_on: user_id
+array_relationships:
+- name: issues
+  using:
+    foreign_key_constraint_on:
+      column: board_id
+      table:
+        name: issues
+        schema: public
+insert_permissions:
+- permission:
+    backend_only: false
+    check: {}
+    columns:
+    - id
+    - user_id
+    - name
+    - created_at
+    - updated_at
+  role: user
+select_permissions:
+- permission:
+    allow_aggregations: true
+    columns:
+    - id
+    - user_id
+    - name
+    - created_at
+    - updated_at
+    filter:
+      user:
+        id:
+          _eq: X-Hasura-User-Id
+  role: user
+update_permissions:
+- permission:
+    check: null
+    columns:
+    - id
+    - user_id
+    - name
+    - created_at
+    - updated_at
+    filter:
+      user:
+        id:
+          _eq: X-Hasura-User-Id
+  role: user
+delete_permissions:
+- permission:
+    filter:
+      user:
+        id:
+          _eq: X-Hasura-User-Id
+  role: user
