@@ -1,0 +1,25 @@
+{
+    "name": "solution-hasura",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "hasura console",
+        "dev": "hasura console --envfile=.env.dev",
+        "migrate": "./scripts/hasura-update.sh"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/js-acedevs/solution-hasura.git"
+    },
+    "keywords": [
+        "hasura",
+        "database"
+    ],
+    "author": "Albrim Paqarizi",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/js-acedevs/solution-hasura.git/issues"
+    },
+    "homepage": "https://github.com/js-acedevs/solution-hasura.git#readme"
+}

@@ -1,0 +1,16 @@
+version: "3.6"
+services:
+    graphql-engine:
+        container_name: solution_hasura
+        image: hasura/graphql-engine:v2.1.1
+        ports:
+            - "${HASURA_IMAGE_PORT}:8080"
+        restart: always
+        environment:
+            HASURA_GRAPHQL_DATABASE_URL: ${HASURA_GRAPHQL_DATABASE_URL}
+            HASURA_GRAPHQL_ENABLE_CONSOLE: "false"
+            HASURA_GRAPHQL_ENABLED_LOG_TYPES: startup, http-log, webhook-log, websocket-log, query-log
+            HASURA_GRAPHQL_ADMIN_SECRET: ${HASURA_GRAPHQL_ADMIN_SECRET}
+            HASURA_GRAPHQL_JWT_SECRET: '{"type":"HS256", "key": "WpjxaTVar48sWETdg5f3DSxucJv2NTYK"}'
+            HASURA_GRAPHQL_UNAUTHORIZED_ROLE: "anonymous"
+            HASURA_GRAPHQL_ACTIONS_ENDPOINT: ${HASURA_GRAPHQL_ACTIONS_ENDPOINT}

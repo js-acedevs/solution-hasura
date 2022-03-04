@@ -1,0 +1,3 @@
+- "!include public_board.yaml"
+- "!include public_issues.yaml"
+- "!include public_users.yaml"

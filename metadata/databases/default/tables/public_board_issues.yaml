@@ -1,0 +1,59 @@
+table:
+  name: board_issues
+  schema: public
+object_relationships:
+- name: board
+  using:
+    foreign_key_constraint_on: board_id
+- name: issue
+  using:
+    foreign_key_constraint_on: issue_id
+insert_permissions:
+- permission:
+    backend_only: false
+    check: {}
+    columns:
+    - board_id
+    - id
+    - issue_id
+    - created_at
+    - updated_at
+  role: user
+select_permissions:
+- permission:
+    allow_aggregations: true
+    columns:
+    - board_id
+    - id
+    - issue_id
+    - created_at
+    - updated_at
+    filter:
+      board:
+        user:
+          id:
+            _eq: X-Hasura-User-Id
+  role: user
+update_permissions:
+- permission:
+    check: null
+    columns:
+    - board_id
+    - id
+    - issue_id
+    - created_at
+    - updated_at
+    filter:
+      board:
+        user:
+          id:
+            _eq: X-Hasura-User-Id
+  role: user
+delete_permissions:
+- permission:
+    filter:
+      board:
+        user:
+          id:
+            _eq: X-Hasura-User-Id
+  role: user
