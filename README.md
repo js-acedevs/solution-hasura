@@ -43,6 +43,12 @@ docker-compose up -d
 ```
 If executed successfully, you can see if a container  named 'solution-hasura' is created in the docker  
 
+then run
+
+```bash
+npm run migrate
+```
+
 And finally start the hasura console server using the script below
 
 ```bash
