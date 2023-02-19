@@ -1,6 +1,5 @@
 ## Getting Started
 
-Solution API is a task given by Solution
 
 ## Setup
 
